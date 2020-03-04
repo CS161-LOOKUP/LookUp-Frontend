@@ -1,0 +1,25 @@
+{
+  "name": "LookUp-Frontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/CS161-LOOKUP/LookUp-Frontend.git",
+  "author": "Ryoji Park <dlbia1106@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel ./src/index.html -p 3000 --open",
+    "build": "parcel build ./src/index.html"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.6",
+    "@babel/preset-react": "^7.8.3",
+    "@types/react": "^16.9.23",
+    "@types/react-dom": "^16.9.5",
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.26.2",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
+  }
+}
