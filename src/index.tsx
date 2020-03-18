@@ -1,5 +1,5 @@
 import React from "react"
 import { render } from "react-dom"
+import App from "./containers/App"
 
-const App: React.SFC = () => <div>App</div>
 render(<App />, document.getElementById("root"))
