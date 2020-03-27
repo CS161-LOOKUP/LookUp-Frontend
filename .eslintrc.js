@@ -4,8 +4,8 @@ module.exports = {
     node: true,
     browser: true,
   },
-  parser: "babel-eslint",
-  plugins: ["react", "prettier"],
+  parser: "@typescript-eslint/parser",
+  plugins: ["react", "prettier", "@typescript-eslint"],
   parserOptions: {
     version: 2018,
     sourceType: "module",
@@ -13,7 +13,7 @@ module.exports = {
       jsx: true,
     },
   },
-  extends: ["eslint:recommended", "plugin:react/recommended", "plugin:prettier/recommended", "prettier/react"],
+  extends: ["plugin:react/recommended", "plugin:prettier/recommended", "prettier/react"],
   rules: {
     "prettier/prettier": "error",
   },

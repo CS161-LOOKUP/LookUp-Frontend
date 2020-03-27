@@ -1,6 +1,6 @@
 import React from "react"
 import { Form, Button } from "react-bootstrap"
-// import { login } from "../usecases/authentication"
+import { login } from "../../api/authentication"
 import { useHistory } from "react-router"
 // import { useDispatch } from "react-redux"
 // import { userActions } from "../modules/userModule"
@@ -8,30 +8,25 @@ import { useHistory } from "react-router"
 
 const Login: React.FC = () => {
   const history = useHistory()
-  // const dispatch = useDispatch()
 
-  // const onSubmit = ($event: React.FormEvent<HTMLFormElement>): void => {
-  //   const user = {
-  //     // @ts-ignore
-  //     email: $event.target[0].value,
-  //     // @ts-ignore
-  //     password: $event.target[1].value
-  //   };
-  //   try {
-  //     login(user).then((res): void => {
-  //       dispatch(userActions.getUser(res.user));
-  //       dispatch(
-  //         appActions.setIsAuthenticated(localStorage.getItem("token") !== null)
-  //       );
-  //       history.push("/home");
-  //     });
-  //   } catch (e) { }
-  //   $event.preventDefault();
-  // };
+  const onSubmit = ($event: React.FormEvent<HTMLFormElement>): void => {
+    const user = {
+      // @ts-ignore
+      email: $event.target[0].value,
+      // @ts-ignore
+      password: $event.target[1].value,
+    }
+    try {
+      login(user).then((res): void => {
+        history.push("/")
+      })
+    } catch (e) {}
+    $event.preventDefault()
+  }
 
   return (
     <div className="d-flex flex-column align-items-center">
-      <Form style={{ minWidth: "400px" }}>
+      <Form onSubmit={onSubmit} style={{ minWidth: "400px" }}>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email" />
