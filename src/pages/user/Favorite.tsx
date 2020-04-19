@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import { ApartmentType, fetchApartments } from "../../store/apartment"
 import { RootState } from "../../store/rootReducer"
 import { useSelector, useDispatch } from "react-redux"
-import { Card, Button } from "react-bootstrap"
+import { Card, Button, CardColumns } from "react-bootstrap"
 import { useHistory } from "react-router"
 
 const GetFavoriteApartments: React.FC = () => {
@@ -22,8 +22,9 @@ const GetFavoriteApartments: React.FC = () => {
   console.log(favorites)
 
   return (
-    <div>
-      <div className="d-flex flex-row m-auto flex-wrap align-items-start" style={{ maxWidth: "80%" }}>
+    <div className="d-flex flex-column align-items-center">
+      <h2>Your favorite Apartments</h2>
+      <CardColumns style={{ maxWidth: "76%" }}>
         {apartments.filter(apart => favorites.includes(apart._id)).length ? (
           apartments
             .filter(apart => favorites.includes(apart._id))
@@ -43,7 +44,7 @@ const GetFavoriteApartments: React.FC = () => {
         ) : (
           <div>you have not added any apartment yet</div>
         )}
-      </div>
+      </CardColumns>
     </div>
   )
 }

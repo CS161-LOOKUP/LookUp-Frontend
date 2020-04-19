@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import { ApartmentType, fetchApartments } from "../../store/apartment"
 import { RootState } from "../../store/rootReducer"
 import { useSelector, useDispatch } from "react-redux"
-import { Card, Button } from "react-bootstrap"
+import { Card, Button, CardColumns } from "react-bootstrap"
 import { useHistory } from "react-router"
 import { addFavorite } from "../../store/currentUser"
 
@@ -28,10 +28,13 @@ const GetApartments: React.FC = () => {
   }
 
   return (
-    <div>
-      <div className="d-flex flex-row m-auto flex-wrap align-items-start" style={{ maxWidth: "80%" }}>
+    <div className="d-flex flex-column align-items-center">
+      <h2>Available Apartments</h2>
+
+      {/* <div className="d-flex flex-row flex-wrap  align-items-start" style={{ marginLeft: "20px", maxWidth: "80%" }}> */}
+      <CardColumns style={{ maxWidth: "70%" }}>
         {apartments.map(apartment => (
-          <Card key={apartment._id} style={{ margin: "10px", width: "18rem" }}>
+          <Card key={apartment._id}>
             <Card.Img
               variant="top"
               src="https://media.gettyimages.com/photos/idyllic-home-with-covered-porch-picture-id479767332?s=612x612"
@@ -40,24 +43,14 @@ const GetApartments: React.FC = () => {
               <Card.Title>{apartment.title}</Card.Title>
               <Card.Text>{apartment.description}</Card.Text>
               <Card.Text>monthly price: ${apartment.price}</Card.Text>
-              <Button style={{ marginRight: "10px" }} onClick={() => handleClick(apartment._id)} variant="primary">
-                Go Detail
+              <Button style={{ marginRight: "10px" }} onClick={() => handleClick(apartment._id)} variant="outline-info">
+                Detail
               </Button>
-              {userApartmentIds.includes(apartment._id) && (
-                <>
-                  {!favorites.includes(apartment._id) ? (
-                    <Button onClick={() => handleClickFav(apartment._id)} variant="primary">
-                      Add to Favorite
-                    </Button>
-                  ) : (
-                    <div>favorites</div>
-                  )}
-                </>
-              )}
             </Card.Body>
           </Card>
         ))}
-      </div>
+        {/* </div> */}
+      </CardColumns>
     </div>
   )
 }

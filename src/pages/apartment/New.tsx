@@ -24,7 +24,8 @@ const CreateApartment: React.FC = () => {
 
   return (
     <div className="d-flex flex-column align-items-center">
-      <Form onSubmit={onSubmit} style={{ minWidth: "400px" }}>
+      <h2>Create your apartment</h2>
+      <Form className="form-card" onSubmit={onSubmit} style={{ minWidth: "400px" }}>
         <Form.Group controlId="title">
           <Form.Label>title</Form.Label>
           <Form.Control placeholder="Enter title" />

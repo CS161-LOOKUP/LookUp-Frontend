@@ -12,7 +12,7 @@ const Header: React.FC = () => {
   // const session = localStorage.getItem("token")
   return (
     // bg = "light"
-    <Navbar style={{ backgroundColor: "white" }} expand="lg">
+    <Navbar expand="lg">
       <Navbar.Brand href="/">Look Up</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">

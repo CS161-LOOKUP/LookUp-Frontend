@@ -2,7 +2,7 @@ import React from "react"
 import { ApartmentType } from "../../store/apartment"
 import { RootState } from "../../store/rootReducer"
 import { useSelector, useDispatch } from "react-redux"
-import { Card, Button } from "react-bootstrap"
+import { Card, Button, CardColumns } from "react-bootstrap"
 import { useHistory } from "react-router"
 
 const GetUserApartments: React.FC = () => {
@@ -14,11 +14,13 @@ const GetUserApartments: React.FC = () => {
   }
 
   return (
-    <div>
-      <div className="d-flex flex-row m-auto flex-wrap align-items-start" style={{ maxWidth: "80%" }}>
+    <div className="d-flex flex-column align-items-center">
+      <h2>Your posted Apartments</h2>
+
+      <CardColumns style={{ maxWidth: "76%" }}>
         {apartments.length ? (
           apartments.map(apartment => (
-            <Card key={apartment._id} style={{ margin: "10px", width: "18rem" }}>
+            <Card key={apartment._id}>
               <Card.Img
                 variant="top"
                 src="https://media.gettyimages.com/photos/idyllic-home-with-covered-porch-picture-id479767332?s=612x612"
@@ -36,7 +38,7 @@ const GetUserApartments: React.FC = () => {
         ) : (
           <div>you have not created any apartment yet</div>
         )}
-      </div>
+      </CardColumns>
     </div>
   )
 }
