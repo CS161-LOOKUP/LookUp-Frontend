@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment } from "react"
 import { Form, Button } from "react-bootstrap"
 import { signup } from "../../api/authentication"
 import { useHistory } from "react-router"
@@ -6,6 +6,9 @@ import TagsInput from "../../components/TagsInput/TagsInput"
 
 const Signup: React.FC = () => {
   const [tags, setTags] = React.useState<string[]>([])
+  const [music, setMusic] = React.useState<number[]>([1, 1, 1, 1])
+  const [movie, setMovie] = React.useState<number[]>([1, 1, 1, 1])
+  const [hobbiesInterests, setHobbiesInterests] = React.useState<number[]>([1, 1, 1, 1])
 
   const handleAdd = (tag: string) => {
     console.log(tag)
@@ -16,22 +19,36 @@ const Signup: React.FC = () => {
     console.log(index)
     setTags([...tags.filter(tag => tags.indexOf(tag) !== index)])
   }
+
+  const onChangeMusic = ($event, i: number) => {
+    let newMusic = [...music]
+    newMusic[i] = $event.target.value
+    setMusic(newMusic)
+  }
+
+  const onChangeMovie = ($event, i: number) => {
+    let newMovie = [...movie]
+    newMovie[i] = $event.target.value
+    setMovie(newMovie)
+  }
+
+  const onChangeHobbiesInterests = ($event, i: number) => {
+    let newHobbiesInterests = [...hobbiesInterests]
+    newHobbiesInterests[i] = $event.target.value
+    setHobbiesInterests(newHobbiesInterests)
+  }
   const history = useHistory()
   // const dispatch = useDispatch()
   const onSubmit = ($event: React.FormEvent<HTMLFormElement>): void => {
     const user = {
-      // @ts-ignore
       firstName: $event.target[0].value,
-      // @ts-ignore
       lastName: $event.target[1].value,
-      // @ts-ignore
       email: $event.target[2].value,
-      // @ts-ignore
       phoneNumber: $event.target[3].value,
-      // @ts-ignore
       password: $event.target[4].value,
-      // @ts-ignore
-      interests: tags,
+      music: music,
+      movie: movie,
+      hobbies_interests: hobbiesInterests,
     }
     try {
       console.log(user)
@@ -81,10 +98,55 @@ const Signup: React.FC = () => {
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" placeholder="Password" />
         </Form.Group>
-        <Form.Group controlId="formBasicPassword">
+        {/* <Form.Group controlId="formBasicPassword">
           <Form.Label>Interests</Form.Label>
           <TagsInput tags={tags} handleAdd={handleAdd} handleRemove={removeTags} />
-        </Form.Group>
+        </Form.Group> */}
+        <h4>music</h4>
+        {["slow", "fast", "country", "hiphop"].map((m, i) => (
+          <Fragment key={m}>
+            <Form.Group controlId={m}>
+              <Form.Label>{m}</Form.Label>
+              <Form.Control onChange={e => onChangeMusic(e, i)} as="select">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </Form.Control>
+            </Form.Group>
+          </Fragment>
+        ))}
+        <h4>movie</h4>
+        {["comedy", "thriller", "horrer", "sci-fi"].map((m, i) => (
+          <Fragment key={m}>
+            <Form.Group controlId={m}>
+              <Form.Label>{m}</Form.Label>
+              <Form.Control onChange={e => onChangeMovie(e, i)} as="select">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </Form.Control>
+            </Form.Group>
+          </Fragment>
+        ))}
+        <h4>hobbies</h4>
+        {["comedy", "thriller", "horrer", "sci-fi"].map((m, i) => (
+          <Fragment key={m}>
+            <Form.Group controlId={m}>
+              <Form.Label>{m}</Form.Label>
+              <Form.Control onChange={e => onChangeHobbiesInterests(e, i)} as="select">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </Form.Control>
+            </Form.Group>
+          </Fragment>
+        ))}
         <div className="d-flex justify-content-center">
           <Button variant="primary" type="submit">
             Sign Up

@@ -21,7 +21,9 @@ export async function signup(user: {
   email: string
   phoneNumber: string
   password: string
-  interests: string[]
+  music: number[]
+  movie: number[]
+  hobbies_interests: number[]
 }) {
   try {
     const res = await instance.post("/user/createUser", user)

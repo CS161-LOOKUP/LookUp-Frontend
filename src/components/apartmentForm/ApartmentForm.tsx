@@ -1,33 +1,25 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { Form, Button } from "react-bootstrap"
-import { useDispatch, useSelector } from "react-redux"
-import { createApartment, getApartment, ApartmentType } from "../../store/apartment"
-import { useParams } from "react-router"
-import { RootState } from "../../store/rootReducer"
+import { useHistory } from "react-router"
+// import { useDispatch } from "react-redux"
 // import { userActions } from "../modules/userModule"
 // import { appActions } from "../modules/appModule"
 
-const EditApartment: React.FC = () => {
-  const dispatch = useDispatch()
-  const { id } = useParams()
-
-  const selectedApartment: ApartmentType = useSelector((state: RootState) => state.apartments.selectedApartment)
-
-  useEffect(() => {
-    dispatch(getApartment(id))
-  }, [])
-
-  console.log(selectedApartment)
+const ApartmentForm: React.FC = () => {
+  const history = useHistory()
+  const [file, setFile] = useState(null)
 
   const onSubmit = ($event: React.FormEvent<HTMLFormElement>): void => {
     const apartment = {
       title: $event.target[0].value,
-      description: $event.target[1].value,
-      price: $event.target[2].value,
-      imageURL: $event.target[3].value,
+      price: $event.target[1].value,
+      description: $event.target[2].value,
+      file: file,
     }
     try {
-      dispatch(createApartment(apartment))
+      // login(user).then((res): void => {
+      //   history.push("/")
+      // })
     } catch (e) {}
     $event.preventDefault()
   }
@@ -37,7 +29,7 @@ const EditApartment: React.FC = () => {
       <Form onSubmit={onSubmit} style={{ minWidth: "400px" }}>
         <Form.Group controlId="title">
           <Form.Label>title</Form.Label>
-          <Form.Control placeholder="Enter title" value={selectedApartment.title} />
+          <Form.Control placeholder="Enter title" />
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
 
@@ -53,20 +45,22 @@ const EditApartment: React.FC = () => {
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
 
-        <Form.Group controlId="imagePath">
-          <Form.Label>image</Form.Label>
-          <Form.Control placeholder="Enter image path" />
-          <Form.Text className="text-muted"></Form.Text>
+        <Form.Group controlId="imageUrl">
+          <Form.Label>price</Form.Label>
+          <input type="file" name="file" onChange={e => setFile(e.target.files[0])} />
         </Form.Group>
 
         <div className="d-flex justify-content-center">
           <Button variant="primary" type="submit">
-            Create
+            Log In
           </Button>
         </div>
       </Form>
+      <Button className="" variant="link" onClick={() => history.push("/signup")}>
+        no account?
+      </Button>
     </div>
   )
 }
 
-export default EditApartment
+export default ApartmentForm

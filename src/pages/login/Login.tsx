@@ -2,22 +2,24 @@ import React from "react"
 import { Form, Button } from "react-bootstrap"
 import { login } from "../../api/authentication"
 import { useHistory } from "react-router"
-// import { useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
+import { getUserInfo } from "../../store/currentUser"
 // import { userActions } from "../modules/userModule"
 // import { appActions } from "../modules/appModule"
 
 const Login: React.FC = () => {
   const history = useHistory()
+  const dispatch = useDispatch()
 
   const onSubmit = ($event: React.FormEvent<HTMLFormElement>): void => {
     const user = {
-      // @ts-ignore
       email: $event.target[0].value,
-      // @ts-ignore
       password: $event.target[1].value,
     }
     try {
       login(user).then((res): void => {
+        console.log(res)
+        dispatch(getUserInfo())
         history.push("/")
       })
     } catch (e) {}
