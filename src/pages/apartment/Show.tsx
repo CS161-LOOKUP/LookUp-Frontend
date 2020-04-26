@@ -24,20 +24,23 @@ const ShowApartment: React.FC = () => {
   }
 
   return selectedApartment ? (
-    <div className="d-flex flex-row align-items-center">
-      <div style={{ margin: "10px", width: "18rem" }}>
+    <div className="d-flex flex-row align-items-center justify-content-center">
+      <div style={{ padding: "40px", backgroundColor: "#ffff", borderRadius: "20px" }}>
         <img src="https://media.gettyimages.com/photos/idyllic-home-with-covered-porch-picture-id479767332?s=612x612" />
         <div>
-          <title>{selectedApartment.title}</title>
-          <div>{selectedApartment.description}</div>
-          <div>{selectedApartment.price}</div>
+          <div className="mt-2">Name</div>
+          <h4>{selectedApartment.title}</h4>
+          <div className="mt-2">Description</div>
+          <h4>{selectedApartment.description}</h4>
+          <div className="mt-2 ">Monthly Price</div>
+          <h4 className="mb-2">{selectedApartment.price}</h4>
         </div>
         {!favorites.includes(selectedApartment._id) ? (
           <Button onClick={() => handleClickFav(selectedApartment._id)} variant="primary">
             Add to Favorites
           </Button>
         ) : (
-          <div>Added to Favorites</div>
+          <div style={{ color: "#f99d14" }}>Added to Favorites</div>
         )}
       </div>
     </div>

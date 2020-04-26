@@ -76,7 +76,7 @@ const Signup: React.FC = () => {
         style={{ minWidth: "400px" }}
       >
         <div className="form-card">
-          <h4 className="category">general</h4>
+          <h4 className="category">General</h4>
           <Form.Group controlId="firstName">
             <Form.Label>First Name</Form.Label>
             <Form.Control placeholder="Enter your first name" />
@@ -108,7 +108,7 @@ const Signup: React.FC = () => {
           <TagsInput tags={tags} handleAdd={handleAdd} handleRemove={removeTags} />
         </Form.Group> */}
         <div className="form-card">
-          <h4>music</h4>
+          <h4 className="category">Music</h4>
           {["slow", "fast", "country", "hiphop"].map((m, i) => (
             <Fragment key={m}>
               <Form.Group controlId={m}>
@@ -125,7 +125,7 @@ const Signup: React.FC = () => {
           ))}
         </div>
         <div className="form-card">
-          <h4>movie</h4>
+          <h4 className="category">Movie</h4>
           {["comedy", "thriller", "horrer", "sci-fi"].map((m, i) => (
             <Fragment key={m}>
               <Form.Group controlId={m}>
@@ -142,7 +142,7 @@ const Signup: React.FC = () => {
           ))}
         </div>
         <div className="form-card">
-          <h4>hobbies</h4>
+          <h4 className="category">Hobbies</h4>
           {["comedy", "thriller", "horrer", "sci-fi"].map((m, i) => (
             <Fragment key={m}>
               <Form.Group controlId={m}>

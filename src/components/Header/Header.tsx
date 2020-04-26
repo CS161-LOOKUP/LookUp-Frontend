@@ -18,34 +18,34 @@ const Header: React.FC = () => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <NavLink
-            style={{ marginRight: "10px" }}
+            style={{ padding: "2px 10px", marginRight: "10px", border: "1px solid", borderRadius: "20px" }}
             activeStyle={{
               fontWeight: "bold",
               color: "black",
             }}
             to="/createApartment"
           >
-            create
+            Create
           </NavLink>
           <NavLink
-            style={{ marginRight: "10px" }}
+            style={{ padding: "2px 8px", marginRight: "10px", border: "1px solid", borderRadius: "20px" }}
             activeStyle={{
               fontWeight: "bold",
               color: "black",
             }}
             to="/user/favorites"
           >
-            favorites
+            Favorites
           </NavLink>
           <NavLink
-            style={{ marginRight: "10px" }}
+            style={{ padding: "2px 8px", marginRight: "10px", border: "1px solid", borderRadius: "20px" }}
             activeStyle={{
               fontWeight: "bold",
               color: "black",
             }}
             to="/user/apartments"
           >
-            posts
+            Posts
           </NavLink>
         </Nav>
       </Navbar.Collapse>

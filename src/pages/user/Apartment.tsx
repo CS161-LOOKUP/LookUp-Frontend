@@ -20,18 +20,16 @@ const GetUserApartments: React.FC = () => {
       <CardColumns style={{ maxWidth: "76%" }}>
         {apartments.length ? (
           apartments.map(apartment => (
-            <Card key={apartment._id}>
+            <Card style={{ borderRadius: "20px" }} key={apartment._id}>
               <Card.Img
                 variant="top"
+                style={{ borderTopLeftRadius: "20px", borderTopRightRadius: "20px" }}
                 src="https://media.gettyimages.com/photos/idyllic-home-with-covered-porch-picture-id479767332?s=612x612"
               />
               <Card.Body>
                 <Card.Title>{apartment.title}</Card.Title>
                 <Card.Text>{apartment.description}</Card.Text>
                 <Card.Text>monthly price: ${apartment.price}</Card.Text>
-                <Button style={{ marginRight: "10px" }} onClick={() => handleClick(apartment._id)} variant="primary">
-                  Edit
-                </Button>
               </Card.Body>
             </Card>
           ))
