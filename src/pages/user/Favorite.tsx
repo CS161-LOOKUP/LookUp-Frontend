@@ -33,7 +33,7 @@ const GetFavoriteApartments: React.FC = () => {
                 <Card.Img
                   variant="top"
                   style={{ borderTopLeftRadius: "20px", borderTopRightRadius: "20px" }}
-                  src="https://media.gettyimages.com/photos/idyllic-home-with-covered-porch-picture-id479767332?s=612x612"
+                  src={apartment.imageURL}
                 />
                 <Card.Body>
                   <Card.Title>{apartment.title}</Card.Title>

@@ -64,7 +64,7 @@ const Signup: React.FC = () => {
   }
 
   return (
-    <div className="d-flex flex-column align-items-center">
+    <div className="signUp d-flex flex-column align-items-center">
       <h2 className="mt-3">Sign up</h2>
       <Form
         onKeyPress={event => {
@@ -109,7 +109,7 @@ const Signup: React.FC = () => {
         </Form.Group> */}
         <div className="form-card">
           <h4 className="category">Music</h4>
-          {["slow", "fast", "country", "hiphop"].map((m, i) => (
+          {["Slow", "Fast", "Country", "Hiphop"].map((m, i) => (
             <Fragment key={m}>
               <Form.Group controlId={m}>
                 <Form.Label>{m}</Form.Label>
@@ -126,7 +126,7 @@ const Signup: React.FC = () => {
         </div>
         <div className="form-card">
           <h4 className="category">Movie</h4>
-          {["comedy", "thriller", "horrer", "sci-fi"].map((m, i) => (
+          {["Comedy", "Thriller", "Horrer", "Sci-Fi"].map((m, i) => (
             <Fragment key={m}>
               <Form.Group controlId={m}>
                 <Form.Label>{m}</Form.Label>
@@ -143,7 +143,7 @@ const Signup: React.FC = () => {
         </div>
         <div className="form-card">
           <h4 className="category">Hobbies</h4>
-          {["comedy", "thriller", "horrer", "sci-fi"].map((m, i) => (
+          {["Sports", "Shopping", "Pets", "Socilizing"].map((m, i) => (
             <Fragment key={m}>
               <Form.Group controlId={m}>
                 <Form.Label>{m}</Form.Label>

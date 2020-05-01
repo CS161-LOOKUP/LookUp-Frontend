@@ -4,7 +4,7 @@ import { RootState } from "../../store/rootReducer"
 import { useSelector, useDispatch } from "react-redux"
 import { Card, Button, CardColumns } from "react-bootstrap"
 import { useHistory } from "react-router"
-import { addFavorite } from "../../store/currentUser"
+import { addFavorite, getUserInfo } from "../../store/currentUser"
 
 const GetApartments: React.FC = () => {
   const dispatch = useDispatch()
@@ -18,6 +18,7 @@ const GetApartments: React.FC = () => {
 
   useEffect(() => {
     dispatch(fetchApartments())
+    dispatch(getUserInfo())
   }, [])
   const handleClick = id => {
     console.log(id)
@@ -30,6 +31,9 @@ const GetApartments: React.FC = () => {
   return (
     <div className="d-flex flex-column align-items-center">
       <h2>Available Apartments</h2>
+      <div className="mb-3">
+        We show the available apartments posted by users who has similarities with you according to your answers
+      </div>
 
       {/* <div className="d-flex flex-row flex-wrap  align-items-start" style={{ marginLeft: "20px", maxWidth: "80%" }}> */}
       <CardColumns style={{ maxWidth: "70%" }}>
@@ -38,7 +42,7 @@ const GetApartments: React.FC = () => {
             <Card.Img
               variant="top"
               style={{ borderTopLeftRadius: "20px", borderTopRightRadius: "20px" }}
-              src="https://media.gettyimages.com/photos/idyllic-home-with-covered-porch-picture-id479767332?s=612x612"
+              src={apartment.imageURL}
             />
             <Card.Body>
               <Card.Title>{apartment.title}</Card.Title>

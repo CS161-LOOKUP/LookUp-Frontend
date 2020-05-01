@@ -28,7 +28,7 @@ const Login: React.FC = () => {
 
   return (
     <>
-      <div className="d-flex flex-column align-items-center">
+      <div className="login h-100 d-flex flex-column align-items-center">
         <h3 className="title">LOOK UP</h3>
         <Form className="form-card" onSubmit={onSubmit} style={{ minWidth: "400px" }}>
           <Form.Group controlId="formBasicEmail">

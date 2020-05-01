@@ -100,5 +100,23 @@ export const addFavorite = (id): AppThunk => async dispatch => {
   }
 }
 
+export const deleteApartment = (id): AppThunk => async dispatch => {
+  try {
+    await instance
+      .delete(`/apartment/delete/${id}`)
+      .then(res => {
+        console.log(res)
+        dispatch(push(""))
+      })
+      .catch(err => {
+        if (err.response.status == 500) dispatch(push("/login"))
+        console.log(err.response)
+      })
+  } catch (err) {
+    console.log(err)
+    throw err
+  }
+}
+
 export const { actions: userActions } = userModule
 export default userModule

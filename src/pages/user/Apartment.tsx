@@ -10,7 +10,7 @@ const GetUserApartments: React.FC = () => {
   const apartments: ApartmentType[] = useSelector((state: RootState) => state.currentUser.user.createdApartments)
   const handleClick = id => {
     console.log(id)
-    history.push(`/apartment/${id}/edit`)
+    history.push(`/apartment/${id}`)
   }
 
   return (
@@ -24,12 +24,19 @@ const GetUserApartments: React.FC = () => {
               <Card.Img
                 variant="top"
                 style={{ borderTopLeftRadius: "20px", borderTopRightRadius: "20px" }}
-                src="https://media.gettyimages.com/photos/idyllic-home-with-covered-porch-picture-id479767332?s=612x612"
+                src={apartment.imageURL}
               />
               <Card.Body>
                 <Card.Title>{apartment.title}</Card.Title>
                 <Card.Text>{apartment.description}</Card.Text>
                 <Card.Text>monthly price: ${apartment.price}</Card.Text>
+                <Button
+                  style={{ marginRight: "10px" }}
+                  onClick={() => handleClick(apartment._id)}
+                  variant="outline-primary"
+                >
+                  Detail
+                </Button>
               </Card.Body>
             </Card>
           ))
