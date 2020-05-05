@@ -1,17 +1,22 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { ApartmentType } from "../../store/apartment"
 import { RootState } from "../../store/rootReducer"
 import { useSelector, useDispatch } from "react-redux"
 import { Card, Button, CardColumns } from "react-bootstrap"
 import { useHistory } from "react-router"
+import { getUserInfo } from "../../store/currentUser"
 
 const GetUserApartments: React.FC = () => {
   const history = useHistory()
+  const dispatch = useDispatch()
   const apartments: ApartmentType[] = useSelector((state: RootState) => state.currentUser.user.createdApartments)
   const handleClick = id => {
     console.log(id)
     history.push(`/apartment/${id}`)
   }
+  useEffect(() => {
+    dispatch(getUserInfo())
+  }, [])
 
   return (
     <div className="d-flex flex-column align-items-center">

@@ -1,6 +1,7 @@
 .signUp {
-  background-image: url("./pages/signup/bg-image.jpg");
-  background-repeat: no-repeat;
+  background-image: url("./pages/signup/bg-image.jpg"), url("./pages/signup/bg-image2.jpg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: top, bottom;
 }
 .form-card {
   background-color: #ffffff;

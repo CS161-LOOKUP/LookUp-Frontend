@@ -31,18 +31,25 @@ const GetApartments: React.FC = () => {
 
   return (
     <div className="d-flex flex-column align-items-center">
-      <h2>Available Apartments</h2>
-      <div className="mb-3">
-        We show the available apartments posted by users who has similarities with you according to your answers
-      </div>
       <input
         className="mb-3"
-        style={{ padding: "2px 5px" }}
+        style={{
+          width: "400px",
+          padding: "3px 15px",
+          outline: "none",
+          border: "1px solid #CECECE",
+          borderRadius: "20px",
+        }}
         placeholder="type apartment name..."
         type="text"
         value={searchWord}
         onChange={handleChange}
       />
+
+      <h2>Available Apartments</h2>
+      <div className="mb-3">
+        We show the available apartments posted by users who has similarities with you according to your answers
+      </div>
 
       {/* <div className="d-flex flex-row flex-wrap  align-items-start" style={{ marginLeft: "20px", maxWidth: "80%" }}> */}
       <CardColumns style={{ maxWidth: "70%" }}>
