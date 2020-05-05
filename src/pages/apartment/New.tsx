@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { Form, Button } from "react-bootstrap"
 import { useDispatch } from "react-redux"
 import { createApartment } from "../../store/apartment"
@@ -7,7 +7,6 @@ import { createApartment } from "../../store/apartment"
 
 const CreateApartment: React.FC = () => {
   const dispatch = useDispatch()
-  const [file, setFile] = useState(null)
 
   const onSubmit = ($event: React.FormEvent<HTMLFormElement>): void => {
     const apartment = {
