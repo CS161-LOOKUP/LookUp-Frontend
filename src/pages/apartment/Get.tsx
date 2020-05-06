@@ -40,7 +40,7 @@ const GetApartments: React.FC = () => {
           border: "1px solid #CECECE",
           borderRadius: "20px",
         }}
-        placeholder="type apartment name..."
+        placeholder="Search Apartments"
         type="text"
         value={searchWord}
         onChange={handleChange}

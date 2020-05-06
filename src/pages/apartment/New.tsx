@@ -26,25 +26,25 @@ const CreateApartment: React.FC = () => {
       <h2>Create your apartment</h2>
       <Form className="form-card" onSubmit={onSubmit} style={{ minWidth: "400px" }}>
         <Form.Group controlId="title">
-          <Form.Label>title</Form.Label>
+          <Form.Label>Title</Form.Label>
           <Form.Control placeholder="Enter title" />
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
 
         <Form.Group controlId="description">
-          <Form.Label>description</Form.Label>
+          <Form.Label>Description</Form.Label>
           <Form.Control placeholder="Enter description" />
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
 
         <Form.Group controlId="price">
-          <Form.Label>price</Form.Label>
+          <Form.Label>Price</Form.Label>
           <Form.Control placeholder="Enter price" />
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
 
         <Form.Group controlId="imagePath">
-          <Form.Label>image</Form.Label>
+          <Form.Label>Image</Form.Label>
           <Form.Control placeholder="Enter image path" />
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
